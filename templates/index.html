@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+
+{% block page_content %}
+<div class="page-header">
+    <h1>Retrieve Weather Information</h1>
+</div>
+<div >
+	<p>Please enter zipcode in the box below to retrieve the weather information for a city.</p>
+	{{ wtf.quick_form(form, form_type='inline') }}
+</div>
+<hr>
+<br>
+<div class="container">
+    <div class='row'>
+      {% if weather_info %}
+      <h3 style="color: blue">Weather Report for {{weather_info.zipcode}}</h3>
+      <br>
+      <p>City: <b>{{weather_info.city}}</b></p>
+      <p>Temperature: <b>{{'%0.2f' % weather_info.temperature|float}} &#8457;</b></p>
+
+      <p>Min temperature: <b>{{'%0.2f' % weather_info.min_temperature|float}} &#8457;</b></p>
+      <p>Max temperature: <b>{{'%0.2f' % weather_info.max_temperature|float}} &#8457;</b></p>
+
+      <p>Description: <b>{{weather_info.description}}</b></p>
+      <p>Geo coords: <b>{{weather_info.coords}}</b></p>
+
+      {% endif %}
+    </div>
+</div>
+{% endblock %}
