@@ -13,8 +13,7 @@ from wtforms.validators import Required
 # Create an application instance
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'Your secret key'
-#app.API_KEY = 'f402064653c681a2f88a5db9d1ca378f'
-app.API_KEY = 'a7aa3d7781f619a0403fa5ae4ffb9111'    # Chaintanya's
+app.API_KEY = 'a7aa3d7781f619a0403fa5ae4ffb9111'    
 
 
 #------------------------------------------
