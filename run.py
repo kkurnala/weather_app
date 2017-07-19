@@ -1,6 +1,6 @@
 import json
-import urllib
-from urllib.request import urlopen
+import urllib2
+#from urllib.request import urlopen
 from flask import Flask, render_template, session, redirect, url_for
 from flask_script import Manager
 from flask_bootstrap import Bootstrap
@@ -63,7 +63,7 @@ def index():
 # Helper function for retrieving weather info by making an API call to openweathermap.org
 def get_weather_info(zipcode):    
     api_url = 'http://api.openweathermap.org/data/2.5/weather?zip=' + zipcode + '&appid=' + app.API_KEY
-    data = urlopen(api_url).read()
+    data = urllib2.urlopen(api_url).read()
     data = json.loads(data)
     print(data)
     weather = {}
